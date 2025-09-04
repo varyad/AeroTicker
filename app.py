@@ -259,8 +259,11 @@ preprocessor = Pipeline(steps=[
 ])
 
 # read the training data
-dir_path = r"/Users/vern/Projects/AeroTicker/data"
-train = pd.read_csv(os.path.join(dir_path, "train.csv"))
+train = pd.read_csv("train.csv")
+
+
+# dir_path = r"/Users/vern/Projects/AeroTicker/data"
+# train = pd.read_csv(os.path.join(dir_path, "train.csv"))
 
 # path = r"/Users/vern/Projects/AeroTicker/data/train.csv"
 # train = pd.read_csv(path)
@@ -348,4 +351,4 @@ if st.button("Predict"):
     # get scalar value from returned array
 	pred = model.predict(x_new_xgb)[0]
 
-	st.info(f"The predicted price is {pred:,.0f} INR")
+	st.info(f"The predicted price is {(pred * 0.11):,.0f} USD")
